@@ -1,22 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import UserForm from './components/UserForm';
+import ElementList from './components/ElementList';
 
 function App() {
+
+  const [GoalList, setGoalList] = useState([{ value: 'Do all exercises!', id: 'g1' },
+  { value: 'Finish the course!', id: 'g2' }]);
+
+
+  const listHandler = (listValue) => {
+    setGoalList((previous) => {
+      return ([listValue, ...previous])
+    })
+    console.log(GoalList)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <UserForm onSubmitHandler={listHandler} />
+        <ElementList items={GoalList} />
       </header>
     </div>
   );
