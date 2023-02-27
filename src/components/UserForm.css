@@ -1,0 +1,30 @@
+.form-container {
+    background-color: #8b005d;
+    color: aliceblue;
+    padding: 3rem 6rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+}
+
+.input-box {
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin-top: 1rem;
+
+}
+
+.submit-btn {
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-container.invalid input {
+    border-color: red;
+    background-color: rgb(250, 217, 215);
+}
+
+.form-container.invalid label {
+    color: red;
+}
