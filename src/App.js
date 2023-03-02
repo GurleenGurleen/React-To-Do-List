@@ -14,13 +14,23 @@ function App() {
       return ([listValue, ...previous])
     })
     console.log(GoalList)
+
+  }
+
+  const deleteItemHandler = (id) => {
+
+    setGoalList((previous) => {
+      const updateList = previous.filter(goal => goal.id !== id);
+      return (updateList)
+    });
+
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <UserForm onSubmitHandler={listHandler} />
-        <ElementList items={GoalList} />
+        <ElementList items={GoalList} deleteItems={deleteItemHandler} />
       </header>
     </div>
   );

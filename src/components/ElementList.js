@@ -5,13 +5,25 @@ import './ElementList.css'
 
 function ElementList(props) {
 
-    return (
-        <ul className='item-list'>
-            {props.items.map((item) => (<Item
-                key={item.id}
-                id={item.id}
+    function deleteHandler(event) {
+        props.deleteItems(event.target.value);
+        console.log(event.target.value);
 
-            >{item.value}</Item>))}
+    }
+
+    return (
+        <ul className='item-list' >
+            {props.items.map((item, index) => (
+                <Item
+                    key={item.id}
+                    id={item.id}
+                    index={index}
+                >
+
+                    <div>{item.value}</div>
+                    <button className='cross_btn' onClick={deleteHandler} value={item.id}>{"\u274C"}</button>
+
+                </Item>))}
         </ul>
     )
 }
